@@ -1,0 +1,24 @@
+directorio /bin
+
+Crear
+
+kafka-topics --create --zookeeper zoo1:2181 --replication-factor 3 --partitions 1 --topic topic-basic-replication-test 
+
+Describir topics
+
+kafka-topics --describe --topics Prueba --zookeeper zoo1:2181
+
+Producir
+
+kafka-console-producer --bootstrap-server localhost:9092 --topic topic-basic-replication-test 
+
+Consumir
+
+kafka-console-consumer--topic Prueba --from-beginning --bootstrap-server localhost:19092
+
+Consumidores en el mismo grupo para repartir info
+
+kafka-console-consumer --bootstrap-server localhost:19092 --topic Prueba --group kafka-twitter
+
+
+
